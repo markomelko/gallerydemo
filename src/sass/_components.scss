@@ -1,0 +1,128 @@
+///////// IMAGE TEASER COMPONENT /////////
+.image-teaser {
+  width: 25rem;
+  padding: 1rem 1rem;
+  @media only screen and (min-width: $bp-small) {
+    border-bottom: 1px solid var(--color-primary);
+    border-radius: 10%;
+  }
+
+  &__image-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  &__image {
+    filter: grayscale(100%);
+    transition: all $default-transition;
+  }
+
+  &__image:hover {
+    filter: grayscale(1%);
+    transition: all $default-transition;
+  }
+
+  &__details {
+    text-align: center;
+    color: var(--color-secondary);
+  }
+}
+
+///////// REST OF TUNINGS /////////
+
+/////////  BUTTON
+.btn {
+  border: 1px solid var(--color-secondary);
+  color: var(--color-secondary);
+  font-family: "Quicksand", sans-serif;
+  border-radius: 3%;
+  display: inline-block;
+}
+
+.btn-default {
+  font-size: var(--font-medium);
+  text-transform: uppercase;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition: all $default-transition;
+
+  &:hover {
+    transition: all $default-transition-hover;
+    box-shadow: 2px 2px 5px var(--color-secondary);
+    color: var(--color-black);
+    cursor: pointer;
+  }
+}
+
+////////// IMAGE VIEWER
+.image-button-backward,
+.image-button-forward {
+  align-self: center;
+}
+
+// arrows to move prev & next
+.image-button-backward {
+  @media only screen and (max-width: $bp-small) {
+    margin-right: -2rem;
+    z-index: 100;
+  }
+}
+
+.image-button-forward {
+  @media only screen and (max-width: $bp-small) {
+    margin-left: -2rem;
+    z-index: 100;
+  }
+}
+
+// image sizing
+.image-viewer-image {
+  &__image {
+    max-height: 60vh;
+    @media only screen and (max-width: $bp-small) {
+      width: 340px;
+    }
+  }
+}
+
+// element to align flex components correctly
+.image-viewer__top-left {
+  width: 10rem;
+}
+
+// image counts and close texts
+.image-viewer__image-count,
+.image-viewer__close-viewer {
+  font-size: var(--font-large);
+  text-transform: uppercase;
+  transition: all $default-transition;
+}
+
+.image-viewer__close-viewer:hover {
+  transition: all $default-transition-hover;
+  transform: translateX(1rem);
+  cursor: pointer;
+}
+
+// image's description text
+.image-viewer-text {
+  font-size: var(--font-large);
+  width: 60rem;
+  @media only screen and (max-width: $bp-small) {
+    width: 34rem;
+  }
+}
+
+///////// LOADER animation /////////
+@keyframes teaserLoading {
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+.loading-images-text {
+  animation: teaserLoading 2s infinite;
+}

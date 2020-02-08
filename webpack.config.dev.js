@@ -1,13 +1,19 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: ["./src/index.js", "./src/sass/main.scss"],
   output: {
     path: path.join(__dirname, "/build"),
-    filename: "index_main.js"
+    filename: "main.js",
+    publicPath: "/"
+  },
+  devServer: {
+    historyApiFallback: true,
+    open: true,
+    overlay: true,
+    port: 9000
   },
   module: {
     rules: [
@@ -17,18 +23,17 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
-      },
-      {
-        test: /\.svg$/,
-        loader: "svg-inline-loader"
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader"
+          },
+          {
+            loader: "sass-loader"
+          }
+        ]
       }
     ]
-  },
-  devServer: {
-    open: true,
-    compress: true,
-    port: 9000
   },
   mode: "development",
   devtool: "inline-source-map",
@@ -36,7 +41,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html"
-    }),
-    new MiniCssExtractPlugin({ filename: "main.css" })
+    })
   ]
 };

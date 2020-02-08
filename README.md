@@ -2,7 +2,7 @@
 
 ## about
 
-    demo's address: https://gallerydemo-1bcf1.web.app/
+    Demo's address: https://gallerydemo-1bcf1.web.app/
 
 ## run
 
@@ -18,14 +18,8 @@
     # build for production
     npm run build
 
-    build to your own platforms :)
-
-## tech stack
-
-    webpack
-    react, react router and redux (redux saga) for state management
-    used sass - css grid, flexbox and few animations
+    use own hosting platform e.g. firebase
 
 ## author
 
-    Marko Melko 2020
+    MM 2020
