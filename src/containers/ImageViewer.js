@@ -28,6 +28,8 @@ class ImageGrid extends React.Component {
 
   componentDidMount() {
     console.log("componentDidMount - this.props.auth.uid", this.props.match);
+
+    window.scrollTo(0, 0);
   }
 
   render() {

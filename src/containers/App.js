@@ -13,7 +13,6 @@ import ContentContainer from "../components/layout/ContentContainer";
 
 // components
 import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
 import Page404 from "../components/utils/404page";
 
 class App extends React.Component {
@@ -30,7 +29,6 @@ class App extends React.Component {
               <Route component={Page404} />
             </Switch>
           </ContentContainer>
-          <Footer />
         </Layout>
       </Router>
     );

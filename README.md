@@ -1,8 +1,12 @@
 # Image gallery demo project
 
+## This is made for demoing purposes
+
+## Build with Webpack, just simple configurations, not for production
+
 ## about
 
-    Demo's address: https://gallerydemo-1bcf1.web.app/
+    Public: https://gallerydemo-1bcf1.firebaseapp.com
 
 ## run
 
