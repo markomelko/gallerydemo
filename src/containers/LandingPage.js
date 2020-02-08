@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
 
-// State
+// state
 import { connect } from "react-redux";
 
 // components
@@ -11,12 +11,11 @@ import ButtonDefault from "../components/ButtonDefault";
 import Footer from "../components/layout/Footer";
 import Loader from "../components/utils/Loader";
 
-import { STATIC_TEXTS } from "../confs/staticTexts";
+import { STATIC_TEXTS } from "../helpers/staticTexts";
 
 class Landing extends Component {
   render() {
     const { appReady } = this.props;
-    console.log("Landing", appReady);
 
     return (
       <React.Fragment>

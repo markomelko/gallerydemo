@@ -2,11 +2,9 @@
 
 ## This is made for demoing purposes
 
-## Build with Webpack, just simple configurations, not for production
+Build with Webpack, simple configurations, pls no no for production
 
-## about
-
-    Public: https://gallerydemo-1bcf1.firebaseapp.com
+View demo: [https://gallerydemo-1bcf1.web.app/](https://gallerydemo-1bcf1.web.app/).
 
 ## run
 

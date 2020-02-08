@@ -1,6 +1,6 @@
 import React from "react";
 
-import { STATIC_TEXTS } from "../../confs/staticTexts";
+import { STATIC_TEXTS } from "../../helpers/staticTexts";
 
 const Loader = () => {
   return (

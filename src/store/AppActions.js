@@ -8,15 +8,16 @@
  *
  */
 
-// import axios from "axios";
+import { getImages } from "../helpers/getImages";
 
 export const AppInit = () => {
   return dispatch => {
     // get images from session storage or api endpoint
-    setTimeout(() => {
+    getImages().then(images => {
+      console.log("All images:", images);
       dispatch({
         type: "INIT"
       });
-    }, 10000);
+    });
   };
 };
