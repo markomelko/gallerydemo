@@ -5,5 +5,6 @@ export const STATIC_TEXTS = {
   pageDescription:
     "Searching for a new laptop online is basically forcing your current computer to dig its own grave.",
   loaderTitle: "Wellcome to image gallery",
-  loaderText: "..loading images"
+  loaderText: "..loading images",
+  startGalleryFrom: 1
 };

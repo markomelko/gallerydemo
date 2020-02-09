@@ -49,7 +49,7 @@ class Landing extends Component {
                   {STATIC_TEXTS.pageDescription}
                 </p>
                 <div className="landing-page__details-goto">
-                  <Link to="/grid/1">
+                  <Link to={`/grid/${STATIC_TEXTS.startGalleryFrom}`}>
                     <ButtonDefault />
                   </Link>
                 </div>

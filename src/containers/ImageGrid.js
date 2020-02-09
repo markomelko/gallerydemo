@@ -27,13 +27,22 @@ class ImageViewer extends React.Component {
   }
 
   render() {
-    const { appReady, imagesArr, totalPages, currentPage } = this.props;
+    const { appReady, imagesArr, totalPages } = this.props;
     const { page } = this.props.match.params;
 
     let teaserElements = "";
     let wantedImages = [];
 
-    // CHECK OVER SITUATIONS 0 ja yli 5000..
+    let prevPage = parseInt(page);
+    let nextPage = parseInt(page);
+
+    if (prevPage > 1) {
+      prevPage -= 1;
+    }
+
+    if (nextPage < totalPages) {
+      nextPage += 1;
+    }
 
     // get wanted page images
     if (page <= totalPages) {
@@ -64,12 +73,12 @@ class ImageViewer extends React.Component {
             <div className="image-grid__images">{teaserElements}</div>
 
             <div className="image-grid__controls">
-              <Link to={`/grid/${parseInt(page) - 1}`}>
+              <Link to={`/grid/${prevPage}`}>
                 <BackwardArrowSVG />
               </Link>
 
               <h2>{page + "/" + totalPages}</h2>
-              <Link to={`/grid/${parseInt(page) + 1}`}>
+              <Link to={`/grid/${nextPage}`}>
                 <ForwardArrowSVG />
               </Link>
             </div>
@@ -86,8 +95,7 @@ const mapStateToProps = state => {
   return {
     appReady: state.ready,
     imagesArr: state.images,
-    totalPages: state.totalPages,
-    currentPage: state.currentPage
+    totalPages: state.totalPages
   };
 };
 

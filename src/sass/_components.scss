@@ -29,6 +29,7 @@
   }
 
   &__details {
+    height: 5rem; // hack to keep control buttons in same height - layout fixes
     text-align: center;
     color: var(--color-secondary);
   }

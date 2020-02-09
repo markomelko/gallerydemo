@@ -3,8 +3,7 @@ const initState = {
   images: "",
   totalPages: "",
   totalImages: "",
-  currentImage: "",
-  currentPage: ""
+  currentImage: ""
 };
 
 const AppReducer = (state = initState, action) => {
