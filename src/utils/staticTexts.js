@@ -11,5 +11,6 @@ export const STATIC_TEXTS = {
   imageViewerDefaultImage: "https://via.placeholder.com/600/92c952",
   imageViewerDefaultTitle:
     "accusamus beatae ad facilis cum similique accusamus beatae ad facilis cum similique qui sunt",
-  buttonText: "show gallery"
+  buttonText: "show gallery",
+  git: "https://github.com/markomelko/gallerydemo"
 };
