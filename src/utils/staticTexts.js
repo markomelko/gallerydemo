@@ -10,5 +10,6 @@ export const STATIC_TEXTS = {
   imageViewerClose: "Close",
   imageViewerDefaultImage: "https://via.placeholder.com/600/92c952",
   imageViewerDefaultTitle:
-    "accusamus beatae ad facilis cum similique accusamus beatae ad facilis cum similique qui sunt"
+    "accusamus beatae ad facilis cum similique accusamus beatae ad facilis cum similique qui sunt",
+  buttonText: "show gallery"
 };

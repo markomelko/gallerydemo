@@ -19,7 +19,7 @@
   }
 
   &__image {
-    filter: grayscale(100%);
+    filter: grayscale(50%);
     transition: all $default-transition;
   }
 
@@ -123,15 +123,21 @@
   }
 }
 
+///////// SIMPLY MODIFIERS /////////
+.align-content-center {
+  text-align: center;
+}
+
 ///////// LOADER animation /////////
+
+.loading-images-text {
+  animation: teaserLoading 2s infinite;
+}
+
 @keyframes teaserLoading {
   100% {
     transform: rotateX(360deg);
   }
-}
-
-.loading-images-text {
-  animation: teaserLoading 2s infinite;
 }
 
 @keyframes fadeInOpacity {
