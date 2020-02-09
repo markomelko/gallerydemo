@@ -1,4 +1,4 @@
-// simple object for application static texts
+//// All application static texts
 export const STATIC_TEXTS = {
   headerText: "Simple image gallery",
   pageTitle: "ReactJS based image gallery",

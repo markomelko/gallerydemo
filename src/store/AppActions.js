@@ -1,22 +1,18 @@
 /**
- * Action creators
+ * Some comments here:
  *
- * 1
- * 2
- * 3
- * 4
+ *
  *
  */
 
-import { getImages } from "../helpers/getImages";
+import { getImages } from "../utils/getImages";
 
 export const AppInit = () => {
   return dispatch => {
-    // get images from session storage or api endpoint
     getImages().then(images => {
-      console.log("All images:", images);
       dispatch({
-        type: "INIT"
+        type: "INIT",
+        payload: images
       });
     });
   };

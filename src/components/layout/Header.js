@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import HomeSVG from "../icons/HomeSVG";
 
-import { STATIC_TEXTS } from "../../helpers/staticTexts";
+import { STATIC_TEXTS } from "../../utils/staticTexts";
 
 const Header = () => {
   return (

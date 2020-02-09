@@ -11,22 +11,36 @@ import ButtonDefault from "../components/ButtonDefault";
 import Footer from "../components/layout/Footer";
 import Loader from "../components/utils/Loader";
 
-import { STATIC_TEXTS } from "../helpers/staticTexts";
+import { STATIC_TEXTS } from "../utils/staticTexts";
 
 class Landing extends Component {
   render() {
-    const { appReady } = this.props;
+    const { appReady, imagesArr } = this.props;
+
+    let teaserElements = "";
+
+    if (appReady && imagesArr.length > 2) {
+      const tempArr = imagesArr.slice(0, 3);
+
+      teaserElements = tempArr.map(image => {
+        return (
+          <TeaserImage
+            key={image.id}
+            id={image.id}
+            page={image.page}
+            thumpnail={image.thump}
+            description={image.title}
+          />
+        );
+      });
+    }
 
     return (
       <React.Fragment>
         {appReady ? (
           <React.Fragment>
             <div className="landing-page">
-              <div className="landing-page__teaser">
-                <TeaserImage />
-                <TeaserImage />
-                <TeaserImage />
-              </div>
+              <div className="landing-page__teaser">{teaserElements}</div>
               <div className="landing-page__details">
                 <h1 className="landing-page__details-title">
                   {STATIC_TEXTS.pageTitle}
@@ -53,7 +67,8 @@ class Landing extends Component {
 
 const mapStateToProps = state => {
   return {
-    appReady: state.ready
+    appReady: state.ready,
+    imagesArr: state.images
   };
 };
 

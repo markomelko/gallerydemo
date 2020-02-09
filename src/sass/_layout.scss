@@ -41,7 +41,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 85vh;
+  min-height: 75vh;
 }
 
 ///////// LANDING PAGE /////////
@@ -84,7 +84,7 @@
 ///////// IMAGE GRID / PAGER /////////
 .image-grid {
   width: 75rem; // as 3 x image teaser element 25rem
-  margin-bottom: 10rem;
+  margin-bottom: 2rem;
   @media only screen and (max-width: $bp-small) {
     width: 100vw;
   }

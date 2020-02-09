@@ -1,5 +1,10 @@
 const initState = {
-  ready: false
+  ready: false,
+  images: "",
+  totalPages: "",
+  totalImages: "",
+  currentImage: "",
+  currentPage: ""
 };
 
 const AppReducer = (state = initState, action) => {
@@ -7,7 +12,8 @@ const AppReducer = (state = initState, action) => {
     case "INIT":
       return {
         state,
-        ready: true
+        ready: true,
+        images: action.payload
       };
     default:
       return state;
