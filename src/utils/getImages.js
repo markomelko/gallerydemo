@@ -1,10 +1,22 @@
 import axios from "axios";
 
 /**
- * Init version, can be much cleaner
+ * Init version, refactoring rounds can be done
  * Add another image source e.g. SpaceX launches
  * Update own first demo https://my-react-test-project-d70d6.firebaseapp.com/
  * Get second images from https://docs.spacexdata.com/?version=latest
+ */
+
+/**
+ * Push image objects to array and pass them to state..
+ * Thats kind of all to make app working with any image storage..
+ *
+ * imageObj{
+ * id: uniq id
+ * title: title text
+ * thump: thump url, can be same as image url
+ * image: original image url - large version
+ * page: images are arranged to pages automatically
  */
 
 // Main getImages functions - uses helpers functions below

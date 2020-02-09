@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-
-// connect to state
 import { connect } from "react-redux";
 
 // components

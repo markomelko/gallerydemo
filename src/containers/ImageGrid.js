@@ -4,8 +4,6 @@ import { withRouter } from "react-router";
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
-
-// connect to state
 import { connect } from "react-redux";
 
 import ForwardArrowSVG from "../components/icons/ForwardArrowSVG";
@@ -21,7 +19,6 @@ class ImageViewer extends React.Component {
     history: PropTypes.object.isRequired
   };
 
-  // check is this really needed!
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -77,7 +74,7 @@ class ImageViewer extends React.Component {
                 <BackwardArrowSVG />
               </Link>
 
-              <h2>{page + "/" + totalPages}</h2>
+              <h2>Page {page + " " + "of" + " " + totalPages}</h2>
               <Link to={`/grid/${nextPage}`}>
                 <ForwardArrowSVG />
               </Link>

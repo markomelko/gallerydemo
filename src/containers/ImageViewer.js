@@ -4,70 +4,129 @@ import { withRouter } from "react-router";
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import ForwardArrowSVG from "../components/icons/ForwardArrowSVG";
 import BackwardArrowSVG from "../components/icons/BackwardArrowSVG";
 
-/**
- * commands
- * - prev items, next items
- * - return to home
- * - open single image
- */
+import Loader from "../components/utils/Loader";
 
-class ImageGrid extends React.Component {
+import { STATIC_TEXTS } from "../utils/staticTexts";
+
+class ImageViewer extends React.Component {
   static propTypes = {
     match: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
   };
 
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
-    console.log("componentDidMount - this.props.auth.uid", this.props.match);
-
     window.scrollTo(0, 0);
   }
 
   render() {
-    console.log("render - this.props.auth.uid", this.props.match);
+    const { appReady, imagesArr, totalPages, totalImages } = this.props;
+    // get wanted image props from query string
+    const { page, image } = this.props.match.params;
+    // parse value to integer to make conditions work
+    const imageID = parseInt(image);
+    // default values for image view
+    let imageItem = {
+      image: STATIC_TEXTS.imageViewerDefaultImage,
+      title: STATIC_TEXTS.imageViewerDefaultTitle
+    };
+
+    let imageIndex = 0;
+
+    let prevImage = {
+      page: 0,
+      id: 0
+    };
+
+    let nextImage = {
+      page: 0,
+      id: 0
+    };
+
+    // get currently wanted image - can also use index value, so this is not needed..
+    if (appReady) {
+      // find wanted image data
+      imageItem = imagesArr.find(item => item.id === imageID);
+      // find image index
+      imageIndex = imagesArr.findIndex(item => item.id === imageID);
+
+      // previous image for routing
+      if (imageIndex > 1) {
+        prevImage.page = imagesArr[imageIndex - 1].page;
+        prevImage.id = imagesArr[imageIndex - 1].id;
+      } else {
+        prevImage.page = imagesArr[0].page;
+        prevImage.id = imagesArr[0].id;
+      }
+
+      // next image for routing
+      let totalCount = parseInt(totalImages - 1);
+      if (imageIndex < totalCount) {
+        nextImage.page = imagesArr[imageIndex + 1].page;
+        nextImage.id = imagesArr[imageIndex + 1].id;
+      } else {
+        nextImage.page = imagesArr[totalCount].page;
+        nextImage.id = imagesArr[totalCount].id;
+      }
+    }
+
     return (
       <section className="image-viewer">
-        <div className="image-viewer__top">
-          <div className="image-viewer__top-left"></div>
-          <h2 className="image-viewer__image-count">3 / 72</h2>
-          <div className="image-viewer__close-viewer">
-            <Link className="noLinkStyle" to="/">
-              Close
-            </Link>
-          </div>
-        </div>
-        <div className="image-viewer__image-area">
-          <div className="image-button-backward">
-            <BackwardArrowSVG />
-          </div>
-          <div className="image-viewer-image">
-            <img
-              className="image-viewer-image__image"
-              src="https://via.placeholder.com/600/92c952"
-            />
-          </div>
-          <div className="image-button-forward">
-            <ForwardArrowSVG />
-          </div>
-        </div>
-        <div className="image-viewer__bottom">
-          <h2 className="image-viewer-text">
-            accusamus beatae ad facilis cum similique accusamus beatae ad
-            facilis cum similique qui sunt
-          </h2>
-        </div>
+        {appReady ? (
+          <React.Fragment>
+            <div className="image-viewer__top">
+              <div className="image-viewer__top-left"></div>
+              <h2 className="image-viewer__image-count">
+                {image + "/" + totalImages}
+              </h2>
+              <div className="image-viewer__close-viewer">
+                <Link className="noLinkStyle" to={`/grid/${page}`}>
+                  {STATIC_TEXTS.imageViewerClose}
+                </Link>
+              </div>
+            </div>
+            <div className="image-viewer__image-area">
+              <div className="image-button-backward">
+                <Link to={`/grid/${prevImage.page}/image/${prevImage.id}`}>
+                  <BackwardArrowSVG />
+                </Link>
+              </div>
+              <div className="image-viewer-image">
+                <img
+                  className="image-viewer-image__image"
+                  src={imageItem.image}
+                />
+              </div>
+              <div className="image-button-forward">
+                <Link to={`/grid/${nextImage.page}/image/${nextImage.id}`}>
+                  <ForwardArrowSVG />
+                </Link>
+              </div>
+            </div>
+            <div className="image-viewer__bottom">
+              <h2 className="image-viewer-text">{imageItem.title}</h2>
+            </div>
+          </React.Fragment>
+        ) : (
+          <Loader />
+        )}
       </section>
     );
   }
 }
 
-export default withRouter(ImageGrid);
+const mapStateToProps = state => {
+  return {
+    appReady: state.ready,
+    imagesArr: state.images,
+    totalPages: state.totalPages,
+    totalImages: state.totalImages
+  };
+};
+
+export default withRouter(connect(mapStateToProps, null)(ImageViewer));

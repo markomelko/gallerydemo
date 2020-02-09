@@ -1,10 +1,3 @@
-/**
- * Some comments here:
- *
- *
- *
- */
-
 import { getImages } from "../utils/getImages";
 
 export const AppInit = () => {

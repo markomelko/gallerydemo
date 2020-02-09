@@ -10,12 +10,13 @@ const AppReducer = (state = initState, action) => {
   switch (action.type) {
     case "INIT":
       const lastImage = action.payload.slice(-1)[0];
+      const imageCount = action.payload.length;
       return {
-        state,
+        ...state,
         ready: true,
         images: action.payload,
         totalPages: lastImage.page,
-        totalImages: lastImage.id
+        totalImages: imageCount
       };
     default:
       return state;
