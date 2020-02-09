@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
 
-// state
+// connect to state
 import { connect } from "react-redux";
 
 // components

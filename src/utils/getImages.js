@@ -55,12 +55,12 @@ const fetchImages = url => {
 const createImageArray = originalData => {
   let imagesArr = [];
   let index = 0;
-  let currentPage = 0;
+  let page = 0;
 
   originalData.forEach(image => {
     // new page for every sixth image
     if (index % 6 == 0) {
-      currentPage += 1;
+      page += 1;
     }
     // push object to array
     imagesArr.push({
@@ -68,7 +68,7 @@ const createImageArray = originalData => {
       title: image.title,
       thump: image.thumbnailUrl,
       image: image.url,
-      page: currentPage
+      page: page
     });
 
     // increase image count
