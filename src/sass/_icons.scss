@@ -1,11 +1,14 @@
 ///////// SVG COLORS & TRANSITIOS
-// rest of icon settings are src/components/icons
 .menu-icon,
 .icon-code,
 .icon-backward,
 .icon-forward {
   fill: var(--color-secondary);
-  transition: all 0.5s;
+  transition: all 1.5s;
+}
+
+.menu-icon,
+.icon-code {
   &:hover {
     transition: all 0.5s;
     cursor: pointer;
@@ -13,14 +16,26 @@
   }
 }
 
+// push a bit right
 .icon-code {
   margin-left: 2rem;
 }
 
+// arrows for grid & image viewer
 .icon-backward:hover {
-  transform: translateX(-1rem);
+  transition: all 0.5s;
+  cursor: pointer;
+  transform: translateX(-0.5rem);
 }
 
 .icon-forward:hover {
-  transform: translateX(1rem);
+  transition: all 0.5s;
+  cursor: pointer;
+  transform: translateX(0.5rem);
+}
+
+.icon-backward:active,
+.icon-forward:active {
+  transition: all 0.5s;
+  transform: scale(1.2);
 }

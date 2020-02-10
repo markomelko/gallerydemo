@@ -1,12 +1,12 @@
-///////// IMAGE TEASER COMPONENT /////////
+// Image teaser component
 .image-teaser {
   width: 25rem;
   padding: 1rem 1rem;
   opacity: 1;
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-duration: 3s;
   @media only screen and (min-width: $bp-small) {
     border-bottom: 1px solid var(--color-primary);
     border-radius: 10%;
@@ -29,19 +29,16 @@
   }
 
   &__details {
-    height: 5rem; // hack to keep control buttons in same height - layout fixes
+    height: 5rem;
     text-align: center;
     color: var(--color-secondary);
   }
 }
 
-///////// REST OF TUNINGS /////////
-
-/////////  BUTTON
+// Default button
 .btn {
   border: 1px solid var(--color-secondary);
-  color: var(--color-secondary);
-  font-family: "Quicksand", sans-serif;
+  color: var(--color-black);
   border-radius: 3%;
   display: inline-block;
 }
@@ -63,28 +60,27 @@
   }
 }
 
-////////// IMAGE VIEWER
+// Image viewer controls
 .image-button-backward,
 .image-button-forward {
   align-self: center;
 }
 
-// arrows to move prev & next
 .image-button-backward {
   @media only screen and (max-width: $bp-small) {
-    margin-right: -2rem;
+    margin-right: -4rem;
     z-index: 100;
   }
 }
 
 .image-button-forward {
   @media only screen and (max-width: $bp-small) {
-    margin-left: -2rem;
+    margin-left: -4rem;
     z-index: 100;
   }
 }
 
-// image sizing
+// image default sizings
 .image-viewer-image {
   &__image {
     max-height: 60vh;
@@ -94,7 +90,8 @@
   }
 }
 
-// element to align flex components correctly
+// Empty element for image viewers top left
+// Others are image count & close viewer button
 .image-viewer__top-left {
   width: 10rem;
 }
@@ -113,7 +110,7 @@
   cursor: pointer;
 }
 
-// image's description text
+// Image description text as title
 .image-viewer-text {
   font-size: var(--font-large);
   width: 60rem;
@@ -123,13 +120,7 @@
   }
 }
 
-///////// SIMPLY MODIFIERS /////////
-.align-content-center {
-  text-align: center;
-}
-
-///////// LOADER animation /////////
-
+// loader and animations
 .loading-images-text {
   animation: teaserLoading 2s infinite;
 }

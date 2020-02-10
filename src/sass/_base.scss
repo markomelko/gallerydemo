@@ -42,7 +42,6 @@ body {
 
 h1,
 h2 {
-  font-weight: 100;
   font-size: var(--font-large);
 }
 
@@ -54,8 +53,7 @@ p {
   font-size: var(--font-small);
 }
 
-a,
-.noLinkStyle {
+a {
   text-decoration: none;
   color: var(--color-secondary);
 }

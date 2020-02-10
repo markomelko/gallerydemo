@@ -11,7 +11,6 @@ import thunk from "redux-thunk";
 // Redux - reducer
 import appReducer from "./store/AppRedecer";
 
-// Init app
 import { AppInit } from "./store/AppActions";
 
 // Redux - store
@@ -24,6 +23,7 @@ const store = createStore(
   )
 );
 
+// Init app
 store.dispatch(AppInit());
 
 ReactDOM.render(

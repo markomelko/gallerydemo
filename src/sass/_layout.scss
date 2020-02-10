@@ -1,11 +1,11 @@
-///////// LAYOUT CONTAINER /////////
+///////// LAYOUT CONTAINER
 .layout-container {
   display: grid;
   grid-template-columns: auto;
   grid-row-gap: 4rem;
 }
 
-///////// HEADER /////////
+///////// HEADER as navbar
 .header {
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@
   }
 }
 
-///////// FOOTER /////////
+///////// FOOTER
 .footer {
   position: fixed;
   bottom: 0;
@@ -35,7 +35,7 @@
   width: 100vw;
 }
 
-///////// CONTENT CONTAINER /////////
+///////// CONTENT CONTAINER
 .content-container {
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@
   min-height: 75vh;
 }
 
-///////// LANDING PAGE /////////
+///////// LANDING PAGE
 .landing-page {
   display: flex;
   flex-direction: column;
@@ -81,7 +81,7 @@
   }
 }
 
-///////// IMAGE GRID / PAGER /////////
+///////// IMAGE GRID / PAGER
 .image-grid {
   width: 75rem; // as 3 x image teaser element 25rem
   margin-bottom: 2rem;
@@ -104,7 +104,7 @@
   }
 }
 
-///////// IMAGE VIEWER /////////
+///////// IMAGE VIEWER
 .image-viewer {
   top: 0;
   left: 0;
@@ -136,7 +136,7 @@
   }
 }
 
-///////// SIMPLY LOADER /////////
+///////// SIMPLY LOADER
 .gallery-loading {
   display: flex;
   flex-direction: column;

@@ -1,4 +1,4 @@
-//// All application static texts
+// static text and urls in one plage
 export const STATIC_TEXTS = {
   headerText: "Simple image gallery",
   pageTitle: "ReactJS based image gallery",
@@ -12,5 +12,6 @@ export const STATIC_TEXTS = {
   imageViewerDefaultTitle:
     "accusamus beatae ad facilis cum similique accusamus beatae ad facilis cum similique qui sunt",
   buttonText: "show gallery",
-  git: "https://github.com/markomelko/gallerydemo"
+  git: "https://github.com/markomelko/gallerydemo",
+  text404: "Sorry can not find content!"
 };

@@ -15,12 +15,12 @@ class Landing extends Component {
   render() {
     const { appReady, imagesArr } = this.props;
 
-    let teaserElements = "";
+    let teaserImages = "";
 
     if (appReady && imagesArr.length > 2) {
       const tempArr = imagesArr.slice(0, 3);
 
-      teaserElements = tempArr.map(image => {
+      teaserImages = tempArr.map(image => {
         return (
           <TeaserImage
             key={image.id}
@@ -38,7 +38,7 @@ class Landing extends Component {
         {appReady ? (
           <React.Fragment>
             <div className="landing-page">
-              <div className="landing-page__teaser">{teaserElements}</div>
+              <div className="landing-page__teaser">{teaserImages}</div>
               <div className="landing-page__details">
                 <h1 className="landing-page__details-title">
                   {STATIC_TEXTS.pageTitle}

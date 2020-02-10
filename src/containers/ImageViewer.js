@@ -15,17 +15,11 @@ import { STATIC_TEXTS } from "../utils/staticTexts";
 
 class ImageViewer extends React.Component {
   static propTypes = {
-    match: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired
   };
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-
   render() {
-    const { appReady, imagesArr, totalPages, totalImages } = this.props;
+    const { appReady, imagesArr, totalImages } = this.props;
     // get wanted image props from query string
     const { page, image } = this.props.match.params;
     // parse value to integer to make conditions work
@@ -124,7 +118,6 @@ const mapStateToProps = state => {
   return {
     appReady: state.ready,
     imagesArr: state.images,
-    totalPages: state.totalPages,
     totalImages: state.totalImages
   };
 };

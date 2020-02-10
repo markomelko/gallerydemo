@@ -14,13 +14,16 @@ import Loader from "../components/utils/Loader";
 
 class ImageViewer extends React.Component {
   static propTypes = {
-    match: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired
   };
 
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef(); // Create a ref object
+  }
+
   componentDidMount() {
-    window.scrollTo(0, 0);
+    this.myRef.current.scrollTo(0, 0);
   }
 
   render() {
@@ -50,7 +53,7 @@ class ImageViewer extends React.Component {
       });
     }
 
-    // create teaser image components
+    // create teaser images
     teaserElements = wantedImages.map(image => {
       return (
         <TeaserImage
@@ -64,7 +67,7 @@ class ImageViewer extends React.Component {
     });
 
     return (
-      <section className="image-grid">
+      <section className="image-grid" ref={this.myRef}>
         {appReady ? (
           <React.Fragment>
             <div className="image-grid__images">{teaserElements}</div>

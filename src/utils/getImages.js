@@ -1,15 +1,13 @@
 import axios from "axios";
 
 /**
- * Init version, refactoring rounds can be done
- * Add another image source e.g. SpaceX launches
- * Update own first demo https://my-react-test-project-d70d6.firebaseapp.com/
- * Get second images from https://docs.spacexdata.com/?version=latest
+ * Init version, optimization should be made
+ * + add another image sources e.g. SpaceX launches
+ * + images/spaceX badges from https://docs.spacexdata.com/?version=latest
  */
 
 /**
- * Push image objects to array and pass them to state..
- * Thats kind of all to make app working with any image storage..
+ * Simply object to arrange image to app state:
  *
  * imageObj{
  * id: uniq id
@@ -19,7 +17,11 @@ import axios from "axios";
  * page: images are arranged to pages automatically
  */
 
-// Main getImages functions - uses helpers functions below
+/**
+ * TODO: error handling overally!
+ */
+
+// Main function that uses below helpers
 export const getImages = () => {
   return new Promise((resolve, reject) => {
     checkStorage()
@@ -28,16 +30,20 @@ export const getImages = () => {
         resolve(imageArr);
       })
       .catch(() => {
-        fetchImages("https://jsonplaceholder.typicode.com/photos").then(
-          resp => {
+        fetchImages("https://jsonplaceholder.typicode.com/photos")
+          .then(resp => {
             const imageArr = createImageArray(resp.data);
             resolve(imageArr);
+            // store fetched items to session storage to avoid useless api calls
             sessionStorage.setItem(
               "demo-gallery-images",
               JSON.stringify(resp.data)
             );
-          }
-        );
+          })
+          .catch(err => {
+            console.log("failed to fetch image from jsonplaceholder..");
+            reject(err);
+          });
       });
   });
 };
@@ -54,7 +60,7 @@ const checkStorage = () => {
   });
 };
 
-// Get images from pointed url
+// Get images from wanted location url
 const fetchImages = url => {
   return new Promise((resolve, reject) => {
     axios.get(url).then(resp => {
@@ -63,7 +69,7 @@ const fetchImages = url => {
   });
 };
 
-// Create usefull imageArray for state
+// Create easy to use image data for state
 const createImageArray = originalData => {
   let imagesArr = [];
   let index = 0;
@@ -74,7 +80,7 @@ const createImageArray = originalData => {
     if (index % 6 == 0) {
       page += 1;
     }
-    // push object to array
+
     imagesArr.push({
       id: image.id,
       title: image.title,
@@ -83,7 +89,6 @@ const createImageArray = originalData => {
       page: page
     });
 
-    // increase image count
     index += 1;
   });
 

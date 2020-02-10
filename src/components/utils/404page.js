@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 
 import ButtonDefault from "../../components/ButtonDefault";
 
+import { STATIC_TEXTS } from "../../utils/staticTexts";
+
 const notFound = () => {
   return (
-    <div className="align-content-center">
-      <h1>Sorry can not find content!</h1>
+    <div style={{ textAlign: "center" }}>
+      <h1 style={{ marginBottom: "2rem" }}>{STATIC_TEXTS.text404}</h1>
       <Link to="/">
         <ButtonDefault text="home" />
       </Link>
