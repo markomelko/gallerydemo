@@ -8,9 +8,9 @@ import { STATIC_TEXTS } from "../../utils/staticTexts";
 
 const notFound = () => {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1 style={{ marginBottom: "2rem" }}>{STATIC_TEXTS.text404}</h1>
-      <Link to="/">
+    <div className="not-found">
+      <h1>{STATIC_TEXTS.text404}</h1>
+      <Link className="not-found__home" to="/">
         <ButtonDefault text="home" />
       </Link>
     </div>
