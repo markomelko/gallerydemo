@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 
 import App from "./containers/App";
 
+// Localization
+import "./utils/i18n";
+
 // Redux - Application state management
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";

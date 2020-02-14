@@ -3,8 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import HomeSVG from "../icons/HomeSVG";
-
-import { STATIC_TEXTS } from "../../utils/staticTexts";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   return (
@@ -14,7 +13,7 @@ const Header = () => {
           <HomeSVG />
         </Link>
       </div>
-      <h2 className="header__slogan">{STATIC_TEXTS.headerText}</h2>
+      <h2 className="header__slogan">{useTranslation().t("headerText")}</h2>
     </header>
   );
 };

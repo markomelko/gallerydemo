@@ -1,9 +1,9 @@
 import React from "react";
 
-import { STATIC_TEXTS } from "../utils/staticTexts";
+import { useTranslation } from "react-i18next";
 
 const ButtonDefault = ({ text }) => {
-  let buttonText = STATIC_TEXTS.buttonText;
+  let buttonText = useTranslation().t("buttonText");
 
   if (text !== undefined) {
     buttonText = text;

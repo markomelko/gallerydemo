@@ -9,11 +9,12 @@ import ButtonDefault from "../components/ButtonDefault";
 import Footer from "../components/layout/Footer";
 import Loader from "../components/utils/Loader";
 
-import { STATIC_TEXTS } from "../utils/staticTexts";
+import { DEFAULTS } from "../utils/defaults";
+import { withTranslation } from "react-i18next";
 
 class Landing extends Component {
   render() {
-    const { appReady, imagesArr } = this.props;
+    const { t, appReady, imagesArr } = this.props;
 
     let teaserImages = "";
 
@@ -41,13 +42,13 @@ class Landing extends Component {
               <div className="landing-page__teaser">{teaserImages}</div>
               <div className="landing-page__details">
                 <h1 className="landing-page__details-title">
-                  {STATIC_TEXTS.pageTitle}
+                  {t("pageTitle")}
                 </h1>
                 <p className="landing-page__details-description">
-                  {STATIC_TEXTS.pageDescription}
+                  {t("pageDescription")}
                 </p>
                 <div className="landing-page__details-goto">
-                  <Link to={`/grid/${STATIC_TEXTS.startGalleryFrom}`}>
+                  <Link to={`/grid/${DEFAULTS.startGalleryFrom}`}>
                     <ButtonDefault />
                   </Link>
                 </div>
@@ -70,4 +71,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(Landing);
+export default connect(mapStateToProps, null)(withTranslation()(Landing));

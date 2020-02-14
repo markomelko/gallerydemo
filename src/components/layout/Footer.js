@@ -2,12 +2,12 @@ import React from "react";
 
 import CodeSVG from "../icons/CodeSVG";
 
-import { STATIC_TEXTS } from "../../utils/staticTexts";
+import { DEFAULTS } from "../../utils/defaults";
 
 const Footer = () => {
   return (
     <div className="footer">
-      <a href={STATIC_TEXTS.git} target="_blank">
+      <a href={DEFAULTS.git} target="_blank">
         <CodeSVG />
       </a>
     </div>

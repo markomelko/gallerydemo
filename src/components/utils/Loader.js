@@ -1,13 +1,14 @@
 import React from "react";
 
-import { STATIC_TEXTS } from "../../utils/staticTexts";
+import { useTranslation } from "react-i18next";
 
 const Loader = () => {
+  const { t } = useTranslation();
   return (
     <div className="gallery-loading">
       <div className="gallery-loading__loader-area">
-        <h2>{STATIC_TEXTS.loaderTitle}</h2>
-        <h2 className="loading-images-text">{STATIC_TEXTS.loaderText}</h2>
+        <h2>{t("loaderTitle")}</h2>
+        <h2 className="loading-images-text">{t("loaderText")}</h2>
       </div>
     </div>
   );

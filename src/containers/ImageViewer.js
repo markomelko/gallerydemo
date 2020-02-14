@@ -11,7 +11,8 @@ import BackwardArrowSVG from "../components/icons/BackwardArrowSVG";
 
 import Loader from "../components/utils/Loader";
 
-import { STATIC_TEXTS } from "../utils/staticTexts";
+import { DEFAULTS } from "../utils/defaults";
+import { withTranslation } from "react-i18next";
 
 class ImageViewer extends React.Component {
   static propTypes = {
@@ -19,15 +20,15 @@ class ImageViewer extends React.Component {
   };
 
   render() {
-    const { appReady, imagesArr, totalImages } = this.props;
+    const { t, appReady, imagesArr, totalImages } = this.props;
     // get wanted image props from query string
     const { page, image } = this.props.match.params;
     // parse value to integer to make conditions work
     const imageID = parseInt(image);
     // default values for image view
     let imageItem = {
-      image: STATIC_TEXTS.imageViewerDefaultImage,
-      title: STATIC_TEXTS.imageViewerDefaultTitle
+      image: DEFAULTS.imageViewerDefaultImage,
+      title: t("imageViewerDefaultTitle")
     };
 
     let imageIndex = 0;
@@ -80,7 +81,7 @@ class ImageViewer extends React.Component {
               </h2>
               <div className="image-viewer__close-viewer">
                 <Link className="noLinkStyle" to={`/grid/${page}`}>
-                  {STATIC_TEXTS.imageViewerClose}
+                  {t("imageViewerClose")}
                 </Link>
               </div>
             </div>
@@ -122,4 +123,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, null)(ImageViewer));
+export default withRouter(
+  connect(mapStateToProps, null)(withTranslation()(ImageViewer))
+);
