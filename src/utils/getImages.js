@@ -21,6 +21,11 @@ import axios from "axios";
  * TODO: error handling overally!
  */
 
+/**
+ * TODO: replace localStorge with sessionStorage :)
+ * When using real images!
+ */
+
 // Main function that uses below helpers
 export const getImages = () => {
   return new Promise((resolve, reject) => {
@@ -35,7 +40,7 @@ export const getImages = () => {
             const imageArr = createImageArray(resp.data);
             resolve(imageArr);
             // store fetched items to session storage to avoid useless api calls
-            sessionStorage.setItem(
+            localStorage.setItem(
               "demo-gallery-images",
               JSON.stringify(resp.data)
             );
@@ -50,7 +55,7 @@ export const getImages = () => {
 
 // Check images from session storage
 const checkStorage = () => {
-  const images = JSON.parse(sessionStorage.getItem("demo-gallery-images"));
+  const images = JSON.parse(localStorage.getItem("demo-gallery-images"));
   return new Promise((resolve, reject) => {
     if (images === null) {
       reject();

@@ -4,7 +4,7 @@ Pretty fast show case project for one pretty cool company.
 Uses JSON placeholder images for now.
 There are landing, imagegrid and single image viewer containers.
 
-Will continue evolving when have time for this :)
+Will continue evolving when have time for this
 
 ## Stack
 
@@ -15,11 +15,11 @@ High level structure:
     .
     ├── ...
     ├── src
-    │ ├── components # Visual components
-    │ ├── containers # Stateful components, landingpage, imagegrid and imageviewer
-    │ ├── sass # Styles https://sass-lang.com/guide
-    │ ├── store # Simply state, that has only the used images
-    │ ├── utils # Static defaults, used texts (i18next) and getImages() function
+    │ ├── components    # Visual components and lyaout wrappers
+    │ ├── containers    # Stateful components
+    │ ├── sass          # Styles
+    │ ├── store         # Simply state
+    │ ├── utils         # Static defaults, used texts (i18next) and getImages() function
     └── ...
 
 ## Demo
@@ -28,15 +28,15 @@ Check: [https://gallerydemo-1bcf1.web.app/](https://gallerydemo-1bcf1.web.app/).
 
 ## Todos
 
-Improve ImageViewer and ImageGrid containers - simplify the render logics
+    Improve ImageViewer and ImageGrid containers - simplify the render logics
 
-Add some linter e.g. [https://github.com/typicode/husky](https://github.com/typicode/husky)
+    Add some linter e.g. [https://github.com/typicode/husky](https://github.com/typicode/husky)
 
-Add few tests e.g. with Jest
+    Add few tests e.g. with Jest
 
-Use async await calls on getImages.js to make it more cleaner
+    Use async await calls on getImages.js to make it more cleaner
 
-Use some other public image storage to make it more visual
+    Use some other public image storage to make it more visual
 
 ..
 
