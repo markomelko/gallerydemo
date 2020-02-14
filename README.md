@@ -12,15 +12,15 @@ Webpack, React, Redux and few other libries, check package.json
 
 High level structure:
 
-.
-├── ...
-├── src
-│ ├── components # Visual components
-│ ├── containers # Stateful components, landingpage, imagegrid and imageviewer
-│ ├── sass # Styles https://sass-lang.com/guide
-│ ├── store # Simply state, that has only the used images
-│ ├── utils # Static defaults, used texts (i18next) and getImages() function
-└── ...
+    .
+    ├── ...
+    ├── src
+    │ ├── components # Visual components
+    │ ├── containers # Stateful components, landingpage, imagegrid and imageviewer
+    │ ├── sass # Styles https://sass-lang.com/guide
+    │ ├── store # Simply state, that has only the used images
+    │ ├── utils # Static defaults, used texts (i18next) and getImages() function
+    └── ...
 
 ## Demo
 
