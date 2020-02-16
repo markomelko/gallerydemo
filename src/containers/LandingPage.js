@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+// update state
+import { ChangeImageSource } from "../store/AppActions";
+
 // components
 import TeaserImage from "../components/TeaserImage";
 import ButtonDefault from "../components/ButtonDefault";
@@ -13,8 +16,21 @@ import { DEFAULTS } from "../utils/defaults";
 import { withTranslation } from "react-i18next";
 
 class Landing extends Component {
+  constructor() {
+    super();
+    this.handleGalleryChange.bind(this);
+  }
+
+  handleGalleryChange = () => {
+    if (this.props.gallery === "default") {
+      this.props.ChangeImageSource("spacex");
+    } else {
+      this.props.ChangeImageSource("default");
+    }
+  };
+
   render() {
-    const { t, appReady, imagesArr } = this.props;
+    const { t, appReady, imagesArr, spacex, gallery } = this.props;
 
     let teaserImages = "";
 
@@ -54,7 +70,11 @@ class Landing extends Component {
                 </div>
               </div>
             </div>
-            <Footer />
+            <Footer
+              spacex={spacex}
+              gallery={gallery}
+              handleGalleryChange={this.handleGalleryChange}
+            />
           </React.Fragment>
         ) : (
           <Loader />
@@ -64,11 +84,22 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapDispatchToProps = dispatch => {
   return {
-    appReady: state.ready,
-    imagesArr: state.images
+    ChangeImageSource: source => dispatch(ChangeImageSource(source))
   };
 };
 
-export default connect(mapStateToProps, null)(withTranslation()(Landing));
+const mapStateToProps = state => {
+  return {
+    appReady: state.ready,
+    imagesArr: state.images,
+    spacex: state.spaceXavaillable,
+    gallery: state.gallery
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withTranslation()(Landing));

@@ -19,6 +19,7 @@
   }
 
   &__image {
+    width: 15rem;
     filter: grayscale(50%);
     transition: all $default-transition;
   }
@@ -33,6 +34,12 @@
     text-align: center;
     color: var(--color-secondary);
   }
+}
+
+// footer additionals
+.footer__current-gallery {
+  color: var(--color-black);
+  margin-right: 2rem;
 }
 
 // Default button
